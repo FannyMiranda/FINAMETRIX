@@ -1,11 +1,11 @@
        <section id="sectionFormulario">
        <div class="wrapper">
         <div class="container-fluid">
-       <form>
+       <form method="post" action="/upload" enctype="multipart/form-data">
             <div class="form-group">
-                 <label for="subir_imagen">Subir Archivo</label>
+                 <label for="subir_imagen"class="label">Subir Archivo</label>
                  <br><br>
-                 <input type="file" name="file" class="form-control">
+                 <input type="file" accept=".csv" name="file" class="form-control">
 
             </div>
 
