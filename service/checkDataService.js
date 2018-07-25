@@ -1,13 +1,13 @@
 class checkDataService
 {
-  constructor(isdn)
+  constructor(isin)
   {
-    this.ISDNObject = isdn;
+    this.ISINObject = isin;
   }
 
   checkData(){
 
-    let lineas = this.ISDNObject.lineas;
+    let lineas = this.ISINObject.lineas;
 
     return new Promise((resolve,reject)=>{
       let errores=[];
@@ -27,4 +27,6 @@ class checkDataService
 }
 
 }
+
+
 module.exports = checkDataService;

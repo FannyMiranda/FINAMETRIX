@@ -98,12 +98,7 @@ function csvJSON(csv){
   }
   
   function csvFileToJSON(file) {
-    if (!window.FileReader || !window.File) {
-      return Promise.reject('Does not support File API');
-    }
-    if (!(file instanceof File)) {
-      return Promise.reject('Not a file');
-    }
+    
   
     return new Promise(function(resolve, reject) {
       var reader = new FileReader();
@@ -122,3 +117,5 @@ function csvJSON(csv){
       reader.readAsText(file);
     });
   }
+
+  module.exports

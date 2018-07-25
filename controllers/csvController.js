@@ -8,11 +8,34 @@ class CsvController extends Controller
   constructor(req,res,next){
 
     super(req, res ,next)
+    console.log(req.file.path)
   }
 
+
+
   index(){
-    let objectISDN={
-      "isdn":"0001",
+
+    var lines=req.file.split('\n');
+  
+    var result = [];
+  
+    var headers=lines[0].split(';');
+    lines.splice(0, 1);
+    lines.forEach(function(line) {
+      var obj = {};
+      var currentline = line.split(';');
+      headers.forEach(function(header, i) {
+        obj[header] = currentline[i];
+      });
+      result.push(obj);
+    });
+
+    console.log(result);
+
+
+
+/*    let objectISIN={
+      "isin":"0001",
       "cabecera":
       {
         "nombre":"Valor 1",
@@ -34,13 +57,15 @@ class CsvController extends Controller
         }
       ]
     }
-    let checkDataService = new CheckDataService(objectISDN);
+    let checkDataService = new CheckDataService(objectISIN);
     checkDataService.checkData()
     .then(data=>{
         this.res.json(data);
     })
 
-  }
+  }*/
+
+}
 
 }
 
